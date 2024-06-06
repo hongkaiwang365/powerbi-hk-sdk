@@ -1,11 +1,11 @@
 {
-    "name": "hongkai/powerbi-hk-sdk",
+    "name": "hongkaiwang365/powerbi-hk-sdk",
     "description": "PHP SDK for working with PowerBI",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "hongkai",
+            "name": "hongkaiwang365",
             "homepage": ""
         }
     ],
