@@ -50,24 +50,10 @@ class Report
         $this->client = $client;
     }
 
-    public function exportTo($groupId, $reportId, $format = 'PDF', $identities = array(),$filters = '',$pages = '')
+    //    public function exportTo($groupId, $reportId, $format = 'PDF', $identities = array(),$filters = '',$pages = '')
+    public function exportTo($groupId, $reportId, $body)
     {
         $url = sprintf(self::REPORT_GROUP_EXPORT, $groupId, $reportId);
-
-        $body = [
-            'format' => $format,
-        ];
-        if ($identities) {
-            $body['powerBIReportConfiguration']['identities'] = $identities;
-        }
-
-        if($pages){
-            $body['powerBIReportConfiguration']['pages'][] = ['pageName' => $pages];
-        }
-
-        if ($filters) {
-            $body['powerBIReportConfiguration']['reportLevelFilters'][] = $filters;
-        }
 
         $response = $this->client->request(Client::METHOD_POST, $url, $body);
 
